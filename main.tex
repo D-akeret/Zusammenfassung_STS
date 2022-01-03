@@ -402,8 +402,6 @@
 \node[fancytitle, right=10pt] at (box.north west) {Grundbegriffe};
 \end{tikzpicture}
 
-\end{multicols}
-
 
 \begin{tikzpicture}
 \node [mybox] (box){
@@ -439,12 +437,128 @@
 \node[fancytitle, right=10pt] at (box.north west) {Kenngrössen};
 \end{tikzpicture}
 
+
 \begin{tikzpicture}
 \node [mybox] (box){
     \begin{minipage}{0.295\textwidth}
+        Die Wahrscheinlichkeit für das Eintreten des Ereignisses B, 
+        unter Voraussetzung dass das Ereignis A eintritt
+        \begin{itemize}
+        \setlength\itemsep{0em}
+            \item \textbf{Multiplikationssatz} \\
+            $P(A \cap B) = P(A) \cdot P(B|A) = P(B) \cdot P(A|B)$
+            \item \textbf{Satz von der totalen Wahrscheinlichkeit}\\
+            $P(B) = P(A) \cdot P(B|A) + P(\overline{A}) \cdot P(B|\overline{A})$
+            \item \textbf{Satz von Bayes}\\
+            $P(B|A) = \frac{P(A \cap B)}{P(A)}$
+        \end{itemize}
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Title};
+\node[fancytitle, right=10pt] at (box.north west) {Bedingte Wahrscheinlichkeit};
 \end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        \includegraphics[width=\textwidth]{images/Bsp_Ereignisbaum_1.png}
+        \includegraphics[width=\textwidth]{images/Bsp_Ereignisbaum_2.png}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Bsp. Ereignisbaum};
+\end{tikzpicture}
+
+
+
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        Falls zwei Ereignisse stochastisch unabhängig sind, beeinflusst das
+        Eintreten des einen Ereignisses nicht das Eintreten des Anderen. somit gilt:
+        \begin{itemize}
+        \setlength\itemsep{0em}
+            \item $P(A|B) = P(A)$ und $P(B|A) = P(B)$
+        \end{itemize}
+        Für zwei Ereignisses $A$ und $B$ sind folgende Aussagen equivalent:
+        \begin{itemize}
+        \setlength\itemsep{0em}
+            \item $A$ und $B$ sind stochastisch unabhängig
+            \item $A$ und $\Omega \setminus B$ sind stochastisch unabhängig
+            \item $\Omega \setminus A$ und $\Omega \setminus B$ sind stochastisch unabhängig
+        \end{itemize}
+        Für stochastisch unabhängige Zufallsvariabeln $X$,$Y$ gilt:
+        \begin{itemize}
+        \setlength\itemsep{0em}
+            \item $E(X \cdot Y) = E(X) \cdot E(Y)$
+            \item $V(X + Y) = V(X) + V(Y)$
+        \end{itemize}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Stochastische Unabhängigkeit};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        \includegraphics[width=\textwidth]{images/bsp_stoch_abhängigkeit.png}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Bsp. Stochastische Unabhängigkeit};
+\end{tikzpicture}
+
+
+\end{multicols}
+\newpage
+
+
+
+
+
+% --------------------------------------------------------------------
+% Spezielle Verteilungen
+% --------------------------------------------------------------------
+\section*{Spezielle Verteilungen}
+
+\begin{multicols}{3}
+
+
+% grundbegriffe
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+    \begin{tabular}{lp{6.5cm} l}
+        $\Omega$: & Ergebnisraum. Alle möglichen ergebnisse eines Zufallsexperiments.\\
+        $\rho$: & Zähldichte (PMF). $\rho$ ist eine Funktion die angibt mit welcher Wahrscheinlichkeit die möglichen Ergebnisse des Zufallsexperiments auftreten.
+	\end{tabular}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Grundbegriffe};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        \includegraphics[width=\textwidth]{images/diskrete_stetige_zufallsvariabeln.png}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Diskrete und stetige Zufallsvariabeln};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        Eine diskrete Zufallsvariable $X$ heisst hypergeometrisch verteilt mit Parametern: $n$ Objekte aus einer Gesamtheit von $N$ Objekten mit $M$ Merkmalsträgern und $N-M$ andersartigen Objekten, wenn Sie die folgende Verteilung besitzt:\\
+        $P(X = x) = \frac{\left( \begin{array}{c} M \\ x \end{array} \right)
+        \cdot \left( \begin{array}{c} N - M \\ n - x \end{array} \right)}{
+            \left( \begin{array}{c} N \\ n \end{array} \right)}$
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Hypergeometrische Verteilungen};
+\end{tikzpicture}
+    
+
+\end{multicols}
 
 \end{document}
