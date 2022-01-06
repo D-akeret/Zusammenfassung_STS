@@ -105,14 +105,25 @@
 	\end{tabular}
     \begin{tabular}{lp{6.5cm} l}
     $n \cdot q$ ist eine \textbf{ganze} zahl:
-    & $R_q = \frac{1}{2}(x_nq + x_{nq + 1})$\\
+    & $R_q = \frac{1}{2}(x_{nq} + x_{nq + 1})$\\
     $n \cdot q$ ist \textbf{keine ganze} zahl:
-    & $R_q = x_{\lceil np \rceil}$\\
+    & $R_q = x_{\lceil nq \rceil}$\\
 	\end{tabular}
 	\\
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Quantile};
+\end{tikzpicture}
+
+
+% Quantile
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        \includegraphics[width=\textwidth]{images/links_rechtsschief.png}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Form der Verteilung};
 \end{tikzpicture}
 
 % Quantile aus Funktion
@@ -485,7 +496,7 @@
             \item $A$ und $\Omega \setminus B$ sind stochastisch unabhängig
             \item $\Omega \setminus A$ und $\Omega \setminus B$ sind stochastisch unabhängig
         \end{itemize}
-        Für stochastisch unabhängige Zufallsvariabeln $X$,$Y$ gilt:
+        Für stochastisch unabhängige Zufallsvariablen $X$,$Y$ gilt:
         \begin{itemize}
         \setlength\itemsep{0em}
             \item $E(X \cdot Y) = E(X) \cdot E(Y)$
@@ -528,7 +539,10 @@
     \begin{minipage}{0.295\textwidth}
     \begin{tabular}{lp{6.5cm} l}
         $\Omega$: & Ergebnisraum. Alle möglichen ergebnisse eines Zufallsexperiments.\\
-        $\rho$: & Zähldichte (PMF). $\rho$ ist eine Funktion die angibt mit welcher Wahrscheinlichkeit die möglichen Ergebnisse des Zufallsexperiments auftreten.
+        $\rho$: & Zähldichte (PMF). $\rho$ ist eine Funktion die angibt mit welcher Wahrscheinlichkeit die möglichen Ergebnisse des Zufallsexperiments auftreten.\\
+        $E(X)$: & Erwartungswert\\
+        $V(X)$: & Varianz\\
+        $S(X)$: & Standardabweichung
 	\end{tabular}
     \end{minipage}
 };
@@ -539,26 +553,255 @@
 \begin{tikzpicture}
 \node [mybox] (box){
     \begin{minipage}{0.295\textwidth}
-        \includegraphics[width=\textwidth]{images/diskrete_stetige_zufallsvariabeln.png}
+        \includegraphics[width=\textwidth]{images/diskrete_stetige_Zufallsvariablen.png}
     \end{minipage}
 };
-\node[fancytitle, right=10pt] at (box.north west) {Diskrete und stetige Zufallsvariabeln};
+\node[fancytitle, right=10pt] at (box.north west) {Diskrete und stetige Zufallsvariablen};
 \end{tikzpicture}
 
 
 \begin{tikzpicture}
 \node [mybox] (box){
     \begin{minipage}{0.295\textwidth}
-        Eine diskrete Zufallsvariable $X$ heisst hypergeometrisch verteilt mit Parametern: $n$ Objekte aus einer Gesamtheit von $N$ Objekten mit $M$ Merkmalsträgern und $N-M$ andersartigen Objekten, wenn Sie die folgende Verteilung besitzt:\\
-        $P(X = x) = \frac{\left( \begin{array}{c} M \\ x \end{array} \right)
-        \cdot \left( \begin{array}{c} N - M \\ n - x \end{array} \right)}{
-            \left( \begin{array}{c} N \\ n \end{array} \right)}$
+        Eine diskrete Zufallsvariable $X$ heisst hypergeometrisch verteilt mit
+        Parametern: $n$ Objekte aus einer Gesamtheit von $N$ Objekten mit $M$
+        Merkmalsträgern und $N-M$ andersartigen Objekten, wenn Sie die folgende
+        Verteilung besitzt:
+        \begin{itemize}
+            \setlength\itemsep{0em}
+                \item Schreibweise: $X \sim H(N,M,n)$
+                \item $P(X = x) = \frac{\left( \begin{array}{c} M \\ x \end{array} \right)
+                \cdot \left( \begin{array}{c} N - M \\ n - x \end{array} \right)}{
+                \left( \begin{array}{c} N \\ n \end{array} \right)}$
+                \item $\mu = E(X) = n \cdot \frac{M}{N}$
+                \item $\sigma^2 = V(X) = n \cdot \frac{M}{N} (1 - \frac{M}{N})\frac{N-n}{N-1}$
+                \item $\sigma = S(X) = \sqrt{n \cdot \frac{M}{N} (1 - \frac{M}{N})\frac{N-n}{N-1}}$
+            \end{itemize}
     \end{minipage}
 };
 \node[fancytitle, right=10pt] at (box.north west) {Hypergeometrische Verteilungen};
 \end{tikzpicture}
     
 
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        Eine diskrete Zufallsvariable $X$heisst binomialverteilt mit Parametern
+        $n$ (Anzahl Wiederholungen), $p$ (Wahrscheinlichkeit für ein Ergebnis 1)
+        und $q=1-p$, wenn ihre Verteilung gegeben ist durch:
+        \begin{itemize}
+            \setlength\itemsep{0em}
+                \item Schreibweise: $X \sim B(n,p)$
+                \item $P(X = x) = \left(\begin{array}{c} n \\ x\end{array}\right) \cdot p^x \cdot q^{n-x}$
+                \item $\mu = E(X) = n \cdot p$
+                \item $\sigma^2 = V(X) = n \cdot p \cdot q$
+                \item $\sigma = S(X) = \sqrt{n \cdot p \cdot q}$
+        \end{itemize}
+       Wenn die Bedingung $n \lesssim \frac{N}{20}$ erfüllt ist, kann die hypergeometrische Verteilung mit den Parametern $n,M,N$ durch die Binomialverteilung angenähert werden:
+       \begin{itemize}
+        \setlength\itemsep{0em}
+            \item $H(N,M,n) \approx B(n,\frac{M}{N})$
+        \end{itemize}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Binomialverteilung};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        Eine diskrete Zufallsvariable $X$ heisst poissonverteilt mit dem
+        Parametern $\lambda$, wenn ihre
+        Verteilung gegeben ist durch:
+        \begin{itemize}
+            \setlength\itemsep{0em}
+                \item Schreibweise: $X \sim Poi(\lambda)$
+                \item $P(X = x) = \frac{\lambda^x}{x!} \cdot e^{-\lambda}$
+                \item $\mu = E(X) = \lambda$
+                \item $\sigma^2 = V(X) = \lambda$
+                \item $\sigma = S(X) = \sqrt{\lambda}$
+        \end{itemize}
+       Wenn die Bedingungen $n \gtrsim 50$ und $p \lesssim 0.1$ erfüllt sind, kann die Binomialverteilung mit den Parametern $n,p$ durch die Poissonverteilung angenähert werden:
+       \begin{itemize}
+        \setlength\itemsep{0em}
+            \item $B(n,p) \approx Poi(n \cdot p)$
+        \end{itemize}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Poissonverteilung};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            Die stetige Zufallsvariable $X$ folgt der Normalverteilung mit den Parametern $\mu, \sigma \in \mathbb{R}, \sigma > 0$, wenn sie folgende Dichtefunktion hat:
+            \begin{itemize}
+                \setlength\itemsep{0em}
+                    \item Schreibweise: $X \sim N(\mu;\sigma)$
+                    \item $E(X) = \mu$
+                    \item $V(X) = \sigma$
+            \end{itemize}
+            Ist $\mu = 0$ und $\sigma = 1$, so spricht man von der
+            \textbf{Standardnormalverteilung}.
+            \begin{itemize}
+                \setlength\itemsep{0em}
+                    \item Schreibweise: $X \sim N(0;1)$
+            \end{itemize}
+            \textbf{Standardisieren:}\\
+            liegt eine beliebige Normalverteilung vor, kann diese
+            standartiesiert werden. Statt der ursprünglichen Zufallsvariablen
+            $X$ betrachtet man die Zufallsvariable:
+            \begin{itemize}
+                \setlength\itemsep{0em}
+                    \item $U = \frac{X - \mu}{\sigma}$
+            \end{itemize}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Normalverteilung};
+    \end{tikzpicture}
+
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            \begin{itemize}
+                \setlength\itemsep{0em}
+                    \item $P(X \leq -a) = 1 - P(X \leq a)$
+                    \item $P(a \leq X \leq b) = P(X \leq b) - P(X \leq a)$
+            \end{itemize}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Rechenregeln Normalverteilung};
+    \end{tikzpicture}
+
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            \includegraphics[width=\textwidth]{images/bsp_normalverteilung_standardisieren.png}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Bsp. Standardisieren};
+    \end{tikzpicture}
+
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            Zufallsvariablen $X_1,\cdots,X_n$ stochastisch unabhängig und
+            identisch verteilt $E(X_i)= \mu, V(X_i)=\sigma^2$\\\\
+            \textbf{Zufallsvariablen:}\\
+            \begin{tabular}{lp{6.5cm} l}
+                Summe: & $S_n = X_1+\cdots+X_n$\\
+                Arith. Mittel: & $\overline{X_n} = \frac{1}{n} \cdot S_n$\\
+	        \end{tabular}\\
+            \textbf{$\Rightarrow $}
+            \begin{tabular}{lp{6.5cm} l}
+                $S_n$ & $\cong_{Approx} N(n \cdot \mu; \sqrt{n} \cdot \sigma)$\\
+                $\overline{X_n}$ & $\cong_{Approx} N(\mu; \frac{\sigma}{\sqrt{n}})$\\
+	        \end{tabular}
+            \begin{multicols*}{2}
+                \begin{itemize}
+                    \setlength\itemsep{0em}
+                        \item $E(S_n) = n \cdot \mu$
+                        \item $V(S_n) = n \cdot \sigma^2$
+                \end{itemize}
+                \begin{itemize}
+                    \setlength\itemsep{0em}
+                        \item $E(\overline{X_n}) = \mu$
+                        \item $V(\overline{X_n}) = \frac{\sigma^2}{n}$
+                \end{itemize}
+            \end{multicols*}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Zentraler Grenzwertsatz};
+    \end{tikzpicture}
+
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            \textbf{Binomialverteilung:}\\
+            Zufallsvariable $X \sim B(n,p)$ mit $npq > 9:$\\
+            \begin{tabular}{lp{6.5cm} l}
+                $\mu$ & $= n\cdot p$\\
+                $\sigma^2$ & $= n \cdot p \cdot q$\\
+	        \end{tabular}\\\\
+            \textbf{Poissonverteilung:}\\
+            Zufallsvariable $X \sim Poi(\lambda)$ mit $\lambda > 9:$\\
+            \begin{tabular}{lp{6.5cm} l}
+                $\mu$ & $= \lambda$\\
+                $\sigma^2$ & $= \lambda$
+	        \end{tabular}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Approximationen durch Normalverteilung};
+    \end{tikzpicture}
+
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            \includegraphics[width=\textwidth]{images/stetigkeitskorrektur.png}
+                \begin{itemize}
+                    \setlength\itemsep{0em}
+                    \item $P(a \leq X \leq b) = \Phi_{\mu,\sigma}(b + \frac{1}{2})
+                    - \Phi_{\mu,\sigma}(a - \frac{1}{2})$
+                    \item $P(a < X \leq b) = \Phi_{\mu,\sigma}(b + \frac{1}{2})
+                    - \Phi_{\mu,\sigma}(a + \frac{1}{2})$
+                    \item $P(a < X < b) = \Phi_{\mu,\sigma}(b - \frac{1}{2})
+                    - \Phi_{\mu,\sigma}(a + \frac{1}{2})$
+                    \item $P(a \leq X < b) = \Phi_{\mu,\sigma}(b - \frac{1}{2})
+                    - \Phi_{\mu,\sigma}(a - \frac{1}{2})$
+                \end{itemize}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Stetigkeitskorrektur bei Approximationen};
+    \end{tikzpicture}
+
 \end{multicols}
+\newpage
+
+
+
+
+
+
+
+% --------------------------------------------------------------------
+% Spezielle Verteilungen
+% --------------------------------------------------------------------
+\section*{Die Methode der kleinsten Quadrate}
+
+\begin{multicols}{3}
+
+% grundbegriffe
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+        \begin{tabular}{lp{6.5cm} l}
+            $s_{xy}$: & Kovarianz\\
+            $s_x^2$: & Varianz der $x_i$ Werte\\
+        \end{tabular}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Grundbegriffe};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Regressionsgerade};
+    \end{tikzpicture}
+
+\end{multicols}
+
+
 
 \end{document}
