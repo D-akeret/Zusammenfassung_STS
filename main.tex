@@ -784,6 +784,8 @@
         \begin{tabular}{lp{6.5cm} l}
             $s_{xy}$: & Kovarianz\\
             $s_x^2$: & Varianz der $x_i$ Werte\\
+            $s_y^2$: & Varianz der $y_i$ Werte\\
+            $\hat{y}$: & Prognstizierte $y$-Werte\\
         \end{tabular}
         \end{minipage}
     };
@@ -794,7 +796,25 @@
 \begin{tikzpicture}
     \node [mybox] (box){
         \begin{minipage}{0.295\textwidth}
-            
+            Die Regressionsgerade $g(x) = mx + d$ mit den Parametern $m$ und $d$
+            ist die Gerade, für die die Residualvarianz $s_{\epsilon}^2$ minimal
+            ist.
+                \begin{itemize}
+                    \setlength\itemsep{0em}
+                    \item $m = \frac{s_{xy}}{s_x^2}$
+                    \item $d = \overline{y} - m\overline{x}$
+                    \item $s_{\epsilon}^2 = s_y^2 - \frac{s_{xy}^2}{s_x^2}$
+                \end{itemize}
+                \par\noindent\rule{\textwidth}{0.4pt}
+                \begin{itemize}
+                    \setlength\itemsep{0em}
+                    \item $s_x^2 = \frac{1}{n}\sum\limits_{i=1}^{n} {(x_i - \overline{x})}^2 =
+                    \left(\frac{1}{n}\sum\limits_{i=1}^{n} x_i^2 \right) - \overline{x}^2$
+                    \item $s_y^2 = \frac{1}{n}\sum\limits_{i=1}^{n} {(y_i - \overline{y})}^2 =
+                    \left(\frac{1}{n}\sum\limits_{i=1}^{n} y_i^2 \right) - \overline{y}^2$
+                    \item $s_{xy} = \frac{1}{n}\sum\limits_{i=1}^{n} (x_i - \overline{x})(y_i - \overline{y})=\left(\frac{1}{n}\sum\limits_{i=1}^{n} x_iy_i \right) - \overline{x}\cdot\overline{y}$
+                    \item $\overline{x} = \frac{1}{n}\sum\limits_{i=1}^{n}x_i$ und $\overline{y} = \frac{1}{n}\sum\limits_{i=1}^{n}y_i$
+                \end{itemize}
         \end{minipage}
     };
     \node[fancytitle, right=10pt] at (box.north west) {Regressionsgerade};
