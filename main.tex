@@ -786,6 +786,8 @@
             $s_x^2$: & Varianz der $x_i$ Werte\\
             $s_y^2$: & Varianz der $y_i$ Werte\\
             $\hat{y}$: & Prognstizierte $y$-Werte\\
+            $R$: & Bestimmtheitsmass\\
+            $r_{xy}$: & Korrelationskoeffizient (S. 2)
         \end{tabular}
         \end{minipage}
     };
@@ -820,8 +822,52 @@
     \node[fancytitle, right=10pt] at (box.north west) {Regressionsgerade};
     \end{tikzpicture}
 
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            Die Totale Varianz setzt sich zusammen aus der Residualvarianz und
+            der Varianz der prognostizierten Werte:\\
+            \begin{itemize}
+                \setlength\itemsep{0em}
+                \item $s_{\hat{y}}^2 = m^2 s_x^2 = \frac{s_{xy}^2}{s_x^2}$
+                \item $s_y^2 = s_{\epsilon}^2 + s_{\hat{y}}^2$
+                \item $R^2 = \frac{s_{\hat{y}}^2}{s_y^2} = \frac{s_{xy}^2}{s_x^2 s_y^2} = r_{xy}^2$
+            \end{itemize}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Bestimmtheitsmass};
+    \end{tikzpicture}
 \end{multicols}
 
 
+% --------------------------------------------------------------------
+% Spezielle Verteilungen
+% --------------------------------------------------------------------
+\section*{Schliessende Statistik}
 
+\begin{multicols}{3}
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+        \begin{tabular}{lp{6.5cm} l}
+            $\Theta_u$: & unteres Vertrauensintervall\\
+            $\Theta_o$: & oberes Vertrauensintervall\\
+            $\gamma$: & Sicherheit\\
+        \end{tabular}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Grundbegriffe};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.4\textwidth}
+            \includegraphics[width=\textwidth]{images/schliessende_sts.png}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {übersicht Vertrauensintervalle};
+    \end{tikzpicture}
+\end{multicols}
 \end{document}
