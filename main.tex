@@ -174,7 +174,7 @@
         \item $\overline{x} = \frac{1}{n}\sum\limits_{i=1}^{n} x_i = \frac{1}{n}\sum\limits_{i=0}^{m} a_i 
         \cdot h_i = \sum\limits_{i=1}^{m} a_i \cdot f_i$
         \item $s_x^2 = \frac{1}{n}\sum\limits_{i=1}^{n} {(x_i - \overline{x})}^2 =
-        [\sum\limits_{i=1}^{m} a_i^2 \cdot f_i] - \overline{x}^2$
+        [\sum\limits_{i=1}^{m} a_i^2 \cdot f_i] - \overline{x}^2 = \overline{x^2} - \overline{x}^2$
         \item $s_x = \sqrt{s_x^2}$
         \item $s_{kor}^2 = \frac{1}{n-1}\sum\limits_{i=1}^{n} {(x_i - \overline{x})}^2 =
         \frac{n}{n-1}\cdot s_x^2$
@@ -540,9 +540,9 @@
     \begin{tabular}{lp{6.5cm} l}
         $\Omega$: & Ergebnisraum. Alle möglichen ergebnisse eines Zufallsexperiments.\\
         $\rho$: & Zähldichte (PMF). $\rho$ ist eine Funktion die angibt mit welcher Wahrscheinlichkeit die möglichen Ergebnisse des Zufallsexperiments auftreten.\\
-        $E(X)$: & Erwartungswert\\
-        $V(X)$: & Varianz\\
-        $S(X)$: & Standardabweichung
+        $E(X)$: & Erwartungswert $(=\mu)$\\
+        $V(X)$: & Varianz $(=\sigma^2)$\\
+        $S(X)$: & Standardabweichung $(=\sigma)$
 	\end{tabular}
     \end{minipage}
 };
@@ -559,6 +559,22 @@
 \node[fancytitle, right=10pt] at (box.north west) {Diskrete und stetige Zufallsvariablen};
 \end{tikzpicture}
 
+\begin{tikzpicture}
+\node [mybox] (box){
+    \begin{minipage}{0.295\textwidth}
+        Bernoulli-Experimente sind Zufallsexperimente mit nur zwei möglichen Ergebnissen. Wir bezeichnen diese Ergebnisse mit $1$ und $0$.
+        \begin{itemize}
+            \setlength\itemsep{0em}
+                \item Schreibweise: $X \sim Ber(p)$
+                \item $P(X = 1) = p$ und $P(X = 0) = 1 - p = q$
+                \item $\mu = E(X) = p$
+                \item $\sigma^2 = V(X) = p \cdot q = p \cdot (1 - p)$
+                \item $\sigma = S(X) = \sqrt{p \cdot q} = \sqrt{p \cdot (1 - p)}$
+            \end{itemize}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Bernoulli Verteilung};
+\end{tikzpicture}
 
 \begin{tikzpicture}
 \node [mybox] (box){
@@ -686,6 +702,15 @@
     \node[fancytitle, right=10pt] at (box.north west) {Bsp. Standardisieren};
     \end{tikzpicture}
 
+\begin{tikzpicture}
+    \node [mybox] (box){
+        \begin{minipage}{0.295\textwidth}
+            \includegraphics[width=\textwidth]{images/bsp_intervall.png}
+        \end{minipage}
+    };
+    \node[fancytitle, right=10pt] at (box.north west) {Bsp. Intervalwarscheinlichkeit};
+    \end{tikzpicture}
+
 
 \begin{tikzpicture}
     \node [mybox] (box){
@@ -786,7 +811,7 @@
             $s_x^2$: & Varianz der $x_i$ Werte\\
             $s_y^2$: & Varianz der $y_i$ Werte\\
             $\hat{y}$: & Prognstizierte $y$-Werte\\
-            $R$: & Bestimmtheitsmass\\
+            $R^2$: & Bestimmtheitsmass\\
             $r_{xy}$: & Korrelationskoeffizient (S. 2)
         \end{tabular}
         \end{minipage}
@@ -870,4 +895,8 @@
     \node[fancytitle, right=10pt] at (box.north west) {übersicht Vertrauensintervalle};
     \end{tikzpicture}
 \end{multicols}
+\newpage
+
+
+
 \end{document}
